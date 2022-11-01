@@ -1,10 +1,15 @@
-# Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 2D пространстве.
+# Реализуйте алгоритм перемешивания списка.
 
-from math import sqrt
+from random import randint
 
-x1 = int(input('введите x первой точки: x1 = '))
-y1 = int(input('введите y первой точки: y1 = '))
-x2 = int(input('введите x второй точки: x2 = '))
-y2 = int(input('введите y второй точки: y2 = '))
-
-print(f'расстоение между двумя точками равно {round((sqrt((x2 - x1)**2 + (y2 - y1)**2)), 2)}')
+N = 20
+numbers = []
+for i in range(N):
+    numbers.append(randint(-N, N))
+print(numbers)
+for i in range(len(numbers)):
+    index = randint(0, len(numbers) - 1)
+    temp = numbers[i]
+    numbers[i] = numbers[index]
+    numbers[index] = temp
+print(numbers)

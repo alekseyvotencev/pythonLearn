@@ -1,13 +1,16 @@
-# Напишите программу, которая по заданному номеру четверти, показывает диапазон возможных координат точек в этой четверти (x и y).
+# Задайте список из N элементов, заполненных числами из промежутка [-N, N]. Найдите произведение элементов на указанных позициях. Позиции хранятся в файле file.txt в одной строке одно число.
 
-a = int(input('введите номер четверти (арабской цифрой): '))
-if (a == 1):
-    print('в данной четверти x > 0, y > 0')
-elif (a == 2):
-    print('в данной четверти x < 0, y > 0')
-elif (a == 3):
-    print('в данной четверти x < 0, y < 0')
-elif (a == 4):
-    print('в данной четверти x > 0, y < 0')
-else:
-    print('что-то ты не то ввел')
+from random import randint
+
+N = 20
+numbers = []
+for i in range(N):
+    numbers.append(randint(-N, N))
+print(numbers)
+file = open('file.txt', 'r')
+multiplication = 1
+for line in file:
+    if int(line) < len(numbers) - 1:
+        multiplication *= numbers[int(line)]
+file.close()
+print(multiplication)
